@@ -1,7 +1,12 @@
 FROM node:18-alpine AS base
 
+# Set environment variables as build arguments
 ARG NEXT_PUBLIC_STUDENT_ID
+ARG NEXT_PUBLIC_URL
+
+# Ensure they are available in the Next.js build process
 ENV NEXT_PUBLIC_STUDENT_ID=$NEXT_PUBLIC_STUDENT_ID
+ENV NEXT_PUBLIC_URL=$NEXT_PUBLIC_URL
 
 # Install dependencies only when needed
 FROM base AS deps
